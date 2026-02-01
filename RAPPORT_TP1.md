@@ -38,13 +38,6 @@ Ce rapport documente le processus complet de modélisation, visualisation et ana
 
 Le projet TypeScript a été entièrement généré en utilisant **GitHub Copilot** pour les fonctionnalités et les tests, selon les directives du laboratoire:
 
-**Règles respectées:**
-- ✅ Tout le code (fonctionnalités et tests) généré par l'IA générative
-- ✅ Aucune conception préalable (diagrammes, patrons, etc.)
-- ✅ Aucun refactoring manuel
-- ✅ Acceptation de la première solution plausible générée
-- ✅ Les ajouts réalisés uniquement via requêtes à Copilot Chat
-- ✅ Code figé après fonctionnement (tests inclus)
 
 ### Questions - Utilisation de l'IA générative
 
