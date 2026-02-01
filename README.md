@@ -159,35 +159,13 @@ La visualisation détaillée inclut :
 
 #### Q1: Quelles sont les classes remarquables dans le projet ? Comment le voyez-vous dans la visualisation ?
 
-La classe NotesManager a le plus des méthodes ainsi que la classe Note a le plus des attributs. On le voit clairement dans le figure 1 où la classe NotesManager est la boîte (rouge) la plus longue et la classe Note est la boîte (grise) la plus large. On peut facilement déduire que la NotesManager s'occupe surtout des fonctionnalité et que Note est une classe contenant les valeurs à stocker. 
+La classe NotesManager a le plus des méthodes ainsi que la classe Note a le plus des attributs. On le voit clairement dans le figure 1 où la classe NotesManager est la boîte (rouge) la plus longue et la classe Note est la boîte (grise) la plus large. On peut facilement déduire que la NotesManager s'occupe surtout des fonctionnalité et que Note est une classe contenant les valeurs à stocker. Finalement, on a la classe Person, y contient les attributs d'une personne et les accesseurs et les mutateurs de ces attributs. 
 
 #### Q2: Expliquez le rôle de ces classes dans le projet. Pourquoi sont-elles importantes ?
 
-NotesManager est la classe centrale du projet. Elle gère les opérations CRUD sur les notes, est la pointe d'entrée unique pour la manipulation de données et orchestre l'interaction entre les composants.
+NotesManager est la classe centrale du projet comme service de gestion centralisé des notes. Elle gère les opérations CRUD sur les notes, est la pointe d'entrée unique pour la manipulation de données et orchestre l'interaction entre les composants. 
 
-[à finir]
-
-**NotesManager - Rôle et importance**
-
-| Aspect | Détails |
-|--------|---------|
-| **Rôle** | Service de gestion centralisé des notes |
-| **Responsabilités principales** | <ul><li>Créer des notes</li><li>Récupérer des notes (une, toutes, filtrées)</li><li>Mettre à jour une note</li><li>Supprimer une note</li></ul> |
-| **Dépendances** | Utilise Note et Person |
-| **Interface** | Expose les méthodes publiques du système |
-| **Importance** | **CRITIQUE** - Point d'accès unique |
-| **Impact** | Toute modification affecte l'ensemble du système |
-| **Métaphoriquement** | Comme un "contrôleur" ou "dispatcher" central |
-
-**Raisons de son importance:**
-1. **Centralisation:** Évite la duplication de logique métier
-2. **Maintenabilité:** Facile à modifier et tester unitairement
-3. **Évolutivité:** Point naturel pour ajouter des fonctionnalités
-4. **Sécurité:** Contrôle centralisé sur l'accès aux données
-5. **Performance:** Point unique pour implémenter du caching
-6. **Transactions:** Où implémenter la gestion transactionnelle
-
----
+La class Note contient tous les attributs est 
 
 **Note - Rôle et importance**
 
