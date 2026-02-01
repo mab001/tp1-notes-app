@@ -1,9 +1,11 @@
 # TP1: Application de gestion de notes - Rapport complet
 
-**Cours**: MGL843 - Reverse Engineering  
-**Titre du projet**: Modélisation et analyse d'un projet TypeScript avec IA générative  
-**Date**: 31 janvier 2026  
-**Auteurs**: [Votre nom]
+**Cours**: MGL843
+**Titre du projet**: TP1 - Modélisation et analyse d'un projet TypeScrip
+**Date de remise**: 1er février 2026 
+**Remis à**: Professeur Christopher Fuhrman
+**Équipe 1**
+**Auteurs**: Marc-André Besner, Stacy Chan, Ilan Hoquidant, Stanislas Mabin
 
 ---
 
@@ -21,14 +23,13 @@
 
 ## Introduction
 
-Ce rapport documente le processus complet de modélisation, visualisation et analyse d'une application de gestion de notes développée en TypeScript avec l'assistance d'outils d'IA générative. Le projet suit une approche entièrement basée sur l'IA, sans conception préalable ni refactoring manuel.
+Ce rapport documente le processus complet de modélisation, visualisation et analyse d'une application de gestion de notes développée en TypeScript avec l'assistance d'outils d'IA générative. 
 
 **Objectifs du TP:**
 - Développer une application TypeScript avec assistance d'IA générative
 - Générer et analyser un modèle FAMIX du projet
 - Visualiser l'architecture avec Roassal
 - Exporter et analyser les données en format CSV
-- Évaluer l'efficacité des outils d'IA pour le développement logiciel
 
 ---
 
@@ -159,172 +160,20 @@ La visualisation détaillée inclut :
 
 #### Q1: Quelles sont les classes remarquables dans le projet ? Comment le voyez-vous dans la visualisation ?
 
-La classe NotesManager a le plus des méthodes ainsi que la classe Note a le plus des attributs. On le voit clairement dans le figure 1 où la classe NotesManager est la boîte (rouge) la plus longue et la classe Note est la boîte (grise) la plus large. On peut facilement déduire que la NotesManager s'occupe surtout des fonctionnalité et que Note est une classe contenant les valeurs à stocker. Finalement, on a la classe Person, y contient les attributs d'une personne et les accesseurs et les mutateurs de ces attributs. Elle est la boîte rouge foncé et elle est plus longue que Note et moins longue que NotesManager.
+La classe NotesManager a le plus des méthodes ainsi que la classe Note a le plus des attributs. On le voit clairement dans le figure 1 où la classe NotesManager est la boîte (rouge) la plus longue et la classe Note est la boîte (grise) la plus large. On peut facilement déduire que la NotesManager s'occupe surtout des fonctionnalité et que Note est une classe contenant les valeurs à stocker. Finalement, on a la classe Person, y contient deux attributs et 5 méthodes. Elle est la boîte rouge foncé et elle est plus longue que Note et moins longue que NotesManager.
 
 #### Q2: Expliquez le rôle de ces classes dans le projet. Pourquoi sont-elles importantes ?
 
 NotesManager est la classe centrale du projet comme service de gestion centralisé des notes. Elle gère les opérations CRUD sur les notes, est la pointe d'entrée unique pour la manipulation de données et orchestre l'interaction entre les composants. 
 
-La class Note contient tous les attributs d'une Note. 
+La classe Note contient tous les attributs d'un objet Note et son contructeur. Alors, on a besoin cette classe pour initialiser une note qu'on peut attribué à une personne.
 
-**Note - Rôle et importance**
-
-| Aspect | Détails |
-|--------|---------|
-| **Rôle** | Modèle de données représentant une note |
-| **Responsabilités** | Encapsuler les données et logique d'une note individuelle |
-| **Attributs** | id (UUID), titre, contenu, dateCreation, dateModification, auteur |
-| **Importance** | **FONDAMENTALE** - Entité core du domaine |
-| **Impact** | Affecte la conception de tout le système |
-| **Métaphoriquement** | La "raison d'être" du système |
-
-**Raisons de son importance:**
-1. **Domaine métier:** C'est ce que le système gère fondamentalement
-2. **Sémantique:** Définit la signification de toutes les opérations
-3. **Intégrité:** Garantit la cohérence et validité des données
-4. **Performance:** Structure affecte l'efficacité (recherche, stockage)
-5. **Extensibilité:** Future évolution du produit tourne autour de Note
-6. **Tests:** Cible principale des tests unitaires
-
----
-
-**Person - Rôle et importance**
-
-| Aspect | Détails |
-|--------|---------|
-| **Rôle** | Modèle représentant les utilisateurs/propriétaires de notes |
-| **Responsabilités** | Gérer les propriétés et attributs d'une personne |
-| **Attributs** | nom, email, ID utilisateur, dateInscription |
-| **Importance** | **IMPORTANTE** - Support pour multi-utilisateur |
-| **Impact** | Détermine les futures extensions et fonctionnalités |
-| **Métaphoriquement** | Le "contexte utilisateur" |
-
-**Raisons de son importance:**
-1. **Extensibilité:** Permet l'évolution vers véritablement multi-utilisateur
-2. **Traçabilité:** Sait qui a créé/modifié quoi (audit trail)
-3. **Sécurité:** Base conceptuelle pour l'authentification et autorisation
-4. **Fonctionnalités:** Permet les notifications, partages, collaboration
-5. **Personnalisation:** Supports les préférences utilisateur
-6. **Analytics:** Permet le suivi d'usage par utilisateur
-
----
-
-**Importance collective du trio:**
-
-```
-┌─────────────────────────────────────────────────┐
-│    Architecture en trois couches (MVC)           │
-├─────────────────────────────────────────────────┤
-│                                                 │
-│         NotesManager (Contrôleur)               │
-│           ▲        ▲        ▲                   │
-│           │        │        │                   │
-│      ┌────┘        │        └────┐              │
-│      │             │             │              │
-│      ▼             ▼             ▼              │
-│    Note       Person         (Données)          │
-│  (Modèles)                                      │
-│                                                 │
-│    Représentation du pattern MVC                │
-└─────────────────────────────────────────────────┘
-```
-
-**Interaction typique:**
-1. Requête utilisateur → NotesManager
-2. NotesManager crée/manipule Note et Person
-3. Retour du résultat à l'utilisateur
+La class Person contient les attributs d'une personne et les accesseurs et les mutateurs de ces attributs. Il important, car chaque note (classe Note) est lié à une personne (classe Person).
 
 #### Q3: Commentez sur la qualité de la conception du projet. Y a-t-il des classes qui semblent mal conçues ? Pourquoi ?
 
-**Analyse complète de la qualité de conception:**
-
-**Points positifs ✅**
-
-| Élément | Score | Justification |
-|--------|-------|--------------|
-| **Séparation des responsabilités** | ⭐⭐⭐⭐⭐ | Chaque classe a un rôle clair et distinct. Note et Person sont des modèles; NotesManager est le service. |
-| **Cohésion** | ⭐⭐⭐⭐⭐ | Éléments d'une classe sont fortement reliés au même concept. Aucun "fourre-tout". |
-| **Type-safety** | ⭐⭐⭐⭐⭐ | Utilisation complète et correcte de TypeScript. Types explicites partout. |
-| **Modularité** | ⭐⭐⭐⭐☆ | Classes bien isolées et réutilisables. Légère dépendance circulaire potentielle. |
-| **Nommage** | ⭐⭐⭐⭐⭐ | Noms explicites et suivant les conventions (camelCase, PascalCase). |
-| **Simplicité** | ⭐⭐⭐⭐⭐ | Code simple et facile à comprendre. Pas de sur-ingénierie. |
-| **Testabilité** | ⭐⭐⭐⭐⭐ | Classes faciles à tester en isolation avec mocks. |
-| **Documentation** | ⭐⭐⭐⭐☆ | Code auto-documenté. Commentaires présents mais limités. |
-
-**Points à améliorer ⚠️**
-
-| Aspect | Problème | Impact | Solution proposée |
-|--------|---------|--------|-------------------|
-| **Granularité de NotesManager** | Trop de responsabilités mixtes | Difficile à tester/modifier | Décomposer en sous-services (CreateNoteService, DeleteNoteService) |
-| **Pas d'interfaces explicites** | Dépendances directes sur les classes concrètes | Tight coupling | Définir des interfaces (INoteRepository, IPersonService) |
-| **Gestion d'erreurs** | Absente ou minimale | Défaillances non gracieuses | Implémenter une stratégie d'erreur uniforme (Result type ou exceptions) |
-| **Injection de dépendances** | Pas de conteneur DI | Difficile à tester/configurer | Utiliser un framework comme InversifyJS |
-| **Validation** | Basique ou absente | Données invalides possibles | Ajouter des validations robustes avec Zod ou io-ts |
-| **Logging** | Non présent | Diagnostic difficile en production | Implémenter Winston ou Pino |
-| **Constants magiques** | Possibles "magic numbers/strings" | Code non maintenable | Extraire les constantes |
-| **Documentation API** | Minimale | API peu claire pour utilisateurs | Ajouter des commentaires JSDoc complets |
-
----
-
-**Classes mal conçues?**
-
-**Verdict: NON, aucune classe n'est fondamentalement mal conçue.**
-
-Cependant, quelques points méritent attention:
-
-1. **NotesManager pourrait être trop grosse**
-   - ⚠️ Contient probablement trop de logique métier
-   - ✅ Mais c'est acceptable pour un petit projet
-   - 🔄 Serait à refactoriser pour un projet plus grand/critique
-   - Suggestion: Ajouter Services spécialisés (NoteCreationService, NoteDeletionService)
-
-2. **Absence de patterns de conception**
-   - ⚠️ Code généré par l'IA tend à être procédural/direct
-   - ✅ Fonctionne correctement pour le cas d'usage
-   - 🔄 Patterns (Factory, Repository, Strategy) seraient bénéfiques pour l'extensibilité
-   - Exemple: Repository Pattern pour l'accès aux données
-
-3. **Coupling faible mais présent**
-   - ⚠️ NotesManager couplée à Note et Person (utilisation directe)
-   - ✅ Couplage attendu pour cette architecture simple
-   - 🔄 Pourrait être réduit par interfaces abstraites
-   - Exemple: `INoteRepository` au lieu d'utiliser directement Note
-
-4. **Pas de gestion de concurrence**
-   - ⚠️ Si deux utilisateurs modifient la même note simultanément
-   - ✅ Non critique pour ce petit projet
-   - 🔄 Serait important en production
-
----
-
-**Analyse architecturale globale:**
-
-```
-QUALITÉ GLOBALE: 7.5/10
-
-✅ Bon (8-9/10):
-  - Type-safety: 9/10
-  - Simplicité: 9/10
-  - Clarté des responsabilités: 8/10
-  - Testabilité: 8/10
-
-⚠️ À améliorer (6-7/10):
-  - Extensibilité: 6/10
-  - Gestion d'erreurs: 5/10
-  - Patterns de conception: 6/10
-  - Documentation: 7/10
-
-Points forts du projet:
-  → Code clair et lisible
-  → Type-safe
-  → Facile à tester
-  → Structure logique
-
-Points faibles du projet:
-  → Pas de patterns avancés
-  → Gestion d'erreurs minimale
-  → Limité pour évolutions futures
-```
+Il n'y a pas de couplage non-nécessaire entre les objets. Il y a une cohésion claire dans les classes Person et Note. Par contre, la classe NotesManager a beaucoup de responsabilités qui ne suit pas le principe 'Single Responsability' (SOLID). Étant donné que le programme est très petit, sa structure actuelle est correct. Toutefois, le principe 'Single Responsibility' devient plus important avec le temps pendant que le programme agrandit. 
+NotesManager a quatre responsabilités distincts : la persistance, la logique métier, l'exportation des données et la recherche des données. Une amélioration possible sera de diviser NotesManager en quatre classes : NotesRespository, NotesManager, NotesSearch et NotesExporter. NotesRepository s'occupera de la persistance, tel que 'load' et 'sauvegarde' des notes. La classe NotesManager restera et elle s'occupera de la logique métier (CRUD - Create, Read, Update and Delete), tel la création et la lecture des notes. NotesSearch fera la recherche des note avec des queries. Et finalement, NotesExporter fera l'exporation des données. Alors, si on veut ajouter du formatting à l'exportation ou la logique aux queries pour faire les recherche customisé, il y a aura les classes dédiés évitant une grande classe qui fait tout.
 
 ---
 
@@ -333,6 +182,7 @@ Points faibles du projet:
 ### Création de la classe Pharo pour exportation CSV
 
 Une classe Pharo a été créée pour exporter les données du modèle FAMIX en format CSV, utilisant la bibliothèque **NeoCSV**.
+La classe Pharo se trouve dans le dossier tp1-export-pharo du dépot GitHub.
 
 **Classe Pharo: TypeScriptToCSVExporter**
 
@@ -342,81 +192,6 @@ Object subclass: #TypeScriptToCSVExporter
     classVariableNames: ''
     package: 'TypeScript-Exporters'
 ```
-
-**Fonctionnalités principales:**
-
-| Méthode | Description |
-|---------|------------|
-| `exportClasses` | Exporte la liste de toutes les classes avec métadonnées |
-| `exportMethods` | Exporte toutes les méthodes avec leurs signatures |
-| `exportAttributes` | Exporte tous les attributs et propriétés |
-| `exportDependencies` | Exporte la matrice de dépendances entre classes |
-| `exportComplexity` | Exporte les métriques de complexité et LOC |
-
-### Fichiers CSV générés
-
-**Structure des exports:**
-
-```
-data/
-├── classes.csv
-│   ├── Colonnes: id, name, type, file, startLine, endLine
-│   ├── numberOfMethods, numberOfAttributes
-│   ├── cyclomaticComplexity, linesOfCode
-│   └── dependencies, isAbstract
-│
-├── methods.csv
-│   ├── Colonnes: id, name, class, signature, returnType
-│   ├── parameters, visibility, isStatic, isAbstract
-│   ├── startLine, endLine, linesOfCode
-│   └── complexity, isDeprecated
-│
-├── attributes.csv
-│   ├── Colonnes: id, name, class, type, visibility
-│   ├── isStatic, isFinal, defaultValue
-│   └── startLine
-│
-└── dependencies.csv
-    ├── Colonnes: sourceClass, targetClass
-    ├── dependencyType (uses, implements, extends)
-    ├── strength (nombre d'utilisations)
-    └── isCircular (bool)
-```
-
-### Synchronisation avec Git
-
-**Dépôt Git créé pour le code Pharo:**
-
-**URL du dépôt**: [LIEN À AJOUTER]
-- Plateforme: GitHub / GitLab
-- Accès: Public (accessible pour l'enseignant)
-- Branche principale: main
-
-**Contenu du dépôt:**
-
-```
-pharo-exporter/
-├── src/
-│   ├── TypeScriptToCSVExporter.class.st
-│   ├── CSVRow.class.st
-│   ├── CSVWriter.class.st
-│   └── DataFormatter.class.st
-├── data/
-│   ├── classes.csv
-│   ├── methods.csv
-│   ├── attributes.csv
-│   └── dependencies.csv
-├── README.md
-├── LICENSE
-└── .gitignore
-```
-
-**Synchronisation via Iceberg:**
-- ✅ Configuration Iceberg pour le dépôt
-- ✅ Push automatique du code source Pharo
-- ✅ Historique Git préservé et accessible
-- ✅ Accès public pour enseignant
-
 ---
 
 ## Partie 4: Visualisation externe
@@ -439,36 +214,15 @@ pharo-exporter/
 
 ![Complexité vs Taille](./images/Figure_8_Complexite_vs_Taille.png)
 
-## Annexes
 
-### A. Fichiers à remettre
 
-**Fichiers obligatoires:**
+### Fichiers à remettre
 
 1. **RAPPORT_TP1.pdf** - Ce rapport en format PDF
 2. **dist/model.json** - Modèle FAMIX du projet TypeScript
-3. **Captures d'écran:**
-   - Roassal: 4 captures minimum (vue globale + 3 détails)
-   - Visualisation externe: 4 captures minimum (différents types de graphiques)
+4. **Dépôts GitHub** - https://github.com/mab001/tp1-notes-app
 
-**Fichiers complémentaires:**
-
-4. **Dépôts GitHub:**
-   - Projet TypeScript: [URL du dépôt]
-   - Code Pharo Exporter: [URL du dépôt]
-
-5. **Fichiers CSV:**
-   - classes.csv
-   - methods.csv
-   - attributes.csv
-   - dependencies.csv
-
-6. **Code de visualisation:**
-   - script_visualizations.py (si Python)
-   - script_visualizations.R (si R)
-   - workbook.xlsx (si Excel)
-
-### B. Références et ressources
+### Références et ressources
 
 - **Tutoriel ts2famix**: https://fuhrmanator.github.io/tuto-famix-ts/
 - **Documentation FAMIX**: http://famix.org/
@@ -516,9 +270,3 @@ tp1-modeliser-projet-typescript/
 
 ---
 
-**Document final - Rapport TP1 MGL843 - Complet et en français**  
-**Date de création**: 31 janvier 2026  
-**Date de soumission**: [À remplir]  
-**Auteur**: [Votre nom]  
-**Matricule**: [À ajouter]  
-**Statut**: ✅ Prêt pour conversion en PDF
