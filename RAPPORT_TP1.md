@@ -105,32 +105,7 @@ Phase 5: Figuration du code (15 min)
 
 #### Q1: Pourquoi appelle-t-on le modèle généré par ts2famix un « modèle de code source » ?
 
-Le modèle généré par ts2famix est appelé **"modèle de code source"** pour plusieurs raisons fondamentales:
-
-1. **Représentation fidèle du code réel**
-   - Capture la structure exacte du code source TypeScript
-   - Reflète l'organisation réelle des classes, méthodes et attributs
-   - Préserve les relations et dépendances du code
-   - N'est pas une abstraction conceptuelle, mais une extraction du code réel
-
-2. **Traçabilité avec le code source**
-   - Chaque élément du modèle est lié à sa localisation dans le code source (fichier, ligne, colonne)
-   - Permet la navigation bidirectionnelle entre modèle et code
-   - Préserve la correspondance exacte avec le source
-
-3. **Extraction automatique**
-   - Généré par analyse syntaxique et sémantique du code source
-   - Pas de modifications ou d'abstractions supplémentaires
-   - Représente exactement ce qui est écrit dans le code
-   - Utilise des outils de parsing reconnaissant la syntaxe TypeScript
-
-4. **Utilité pour l'analyse**
-   - Permet l'analyse automatisée du code existant
-   - Utilisé pour le reverse engineering
-   - Base pour la visualisation et les métriques de code
-   - Peut être importé dans d'autres outils d'analyse
-
-**Conclusion:** Ce n'est pas un modèle conceptuel ou théorique, mais une **représentation structurelle, métrique et métaprogrammée du code source réel et actuel**.
+Le modèle généré par ts2famix est 
 
 #### Q2: Quelles sont les différences entre un modèle de code source Famix et un modèle de classes TypeScript en UML ? Peut-on tout modéliser de TypeScript dans les diagrammes de classes UML ? Soyez précis dans votre réponse.
 
