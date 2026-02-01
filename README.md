@@ -113,7 +113,11 @@ Phase 5: Figuration du code (15 min)
 
 ## Partie 1: Modélisation du projet TypeScript
 
-
+Étapes suivies :
+1. Téléchargement de la plus nouvelle version de ts2famix (npm install -g ts2famix)
+2. Génération du modèle famix (ts2famix -i tsconfig.json -o tp1-notes-app.json
+3. Importer le modèle famix (tp1-notes-app.json) dans Moose
+4. Naviguer dans le modèle pour voir les propriétés, etc.
 
 ### Questions - Modélisation du projet TypeScript
 
@@ -138,6 +142,10 @@ Est-ce qu'on peut modéliser de TypeScript dans les diagrammes de classes UML? O
 Le projet TypeScript a été visualisé en utilisant **Roassal** selon le tutoriel:  
 https://fuhrmanator.github.io/tuto-famix-ts/
 
+Étapes suivies :
+1. À partir de la partie précédente, le modèle Famix est importé dans Moose
+2. Copier le code de visualisation Roassal fourni du tutoriel du professeur (https://fuhrmanator.github.io/tuto-famix-ts/)
+3. Lancer le code et naviguer dans les onglets et les pages pour en apprendre plus sur le modèle. 
 
 ### Captures d'écran de Roassal
 
@@ -195,7 +203,7 @@ NotesManager a quatre responsabilités distincts : la persistance, la logique m�
 ### Création de la classe Pharo pour exportation CSV
 
 Une classe Pharo a été créée pour exporter les données du modèle FAMIX en format CSV, utilisant la bibliothèque **NeoCSV**.
-La classe Pharo se trouve dans le dossier tp1-export-pharo du dépot GitHub.
+La classe Pharo se trouve dans le dossier tp1-export-pharo du dépot GitHub. (https://github.com/mab001/tp1-notes-app/tree/57721a9cd34421cb2b80db413ded75e1687730a3/tp1-export-pharo)
 
 **Classe Pharo: TypeScriptToCSVExporter**
 
