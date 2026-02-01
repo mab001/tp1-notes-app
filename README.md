@@ -17,7 +17,6 @@
 4. [Partie 2: Visualisation du projet TypeScript](#partie-2-visualisation-du-projet-typescript)
 5. [Partie 3: Exportation des données en CSV](#partie-3-exportation-des-données)
 6. [Partie 4: Visualisation externe](#partie-4-visualisation-externe)
-7. [Conclusion](#conclusion)
 
 ---
 
@@ -30,6 +29,20 @@ Ce rapport documente le processus complet de modélisation, visualisation et ana
 - Générer et analyser un modèle FAMIX du projet
 - Visualiser l'architecture avec Roassal
 - Exporter et analyser les données en format CSV
+
+**Structure du dépot GitHub**
+
+```
+tp1-notes-app
+├── tp1-export-pharo/ - la classe Pharo utilisé pour la génération des données en .csv  (Partie 3)
+├── tp1-notes-app/ - application TypeScript généré par l'IA (Partie 0)
+│   └── tests/│   
+├── images/ - contient tous les captures d'écran (Partie 2 & 4)
+├── classes_export.csv - le .csv généré par Pharo (Partie 3)
+├── tp1-notes-app.json - le modèle famix généré par ts2famix (Partie 1)
+├── Visualisation.py - le code utilisé pour généré une visualisation des données .csv (Partie 3)
+├── README.md - notre rapport
+```
 
 ---
 
@@ -232,41 +245,7 @@ Object subclass: #TypeScriptToCSVExporter
 - **GitHub Copilot**: https://github.com/features/copilot
 - **TypeScript**: https://www.typescriptlang.org/
 
-### C. Structure finale du projet
 
-```
-tp1-modeliser-projet-typescript/
-├── src/
-│   ├── index.ts
-│   ├── Note.ts
-│   ├── Person.ts
-│   ├── NotesManager.ts
-│   └── tests/
-│       └── notes.test.ts
-├── dist/
-│   ├── index.js
-│   ├── Note.js
-│   ├── Person.js
-│   ├── NotesManager.js
-│   └── model.json (FAMIX)
-├── data/
-│   ├── classes.csv
-│   ├── methods.csv
-│   ├── attributes.csv
-│   └── dependencies.csv
-├── visualizations/
-│   ├── visualization_1_methods.png
-│   ├── visualization_2_loc.png
-│   ├── visualization_3_complexity.png
-│   ├── visualization_4_dependencies.png
-│   ├── visualization_5_distribution.png
-│   └── visualization_6_scatter.png
-├── package.json
-├── tsconfig.json
-├── jest.config.js
-├── README.md
-└── RAPPORT_TP1.md
-```
 
 ---
 
