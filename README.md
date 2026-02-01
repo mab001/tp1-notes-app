@@ -124,67 +124,42 @@ Est-ce qu'on peut modéliser de TypeScript dans les diagrammes de classes UML? O
 Le projet TypeScript a été visualisé en utilisant **Roassal** selon le tutoriel:  
 https://fuhrmanator.github.io/tuto-famix-ts/
 
-**Étapes:**
-1. Import du modèle FAMIX dans Moose
-2. Écriture de script Roassal pour la visualisation
-3. Génération des graphiques interactifs
-4. Capture d'écran de la visualisation complète
 
 ### Captures d'écran de Roassal
 
 **Figure 1: Visualisation complète du projet TypeScript**
 
-```
-[CAPTURE D'ÉCRAN À AJOUTER: Vue d'ensemble du graphe des classes]
+![Visualisation avec Roassal des classes du programme](/images/visualisationRoassalAnnoté.png)
 
-Description: Cette visualisation montre:
+```
+Cette visualisation complète montre :
 - Toutes les classes du projet (Note, Person, NotesManager)
-- Les relations entre les classes (dépendances, utilisations)
-- La centralité des classes (taille des nœuds proportionnelle à l'importance)
-- Les patterns architecturaux visuellement évidents
-- Les flèches indiquant les dépendances directionnelles
+- La centralité des classes (largeur et heuteur des boîtes proportionnelle à l'importance)
+-- La largeur représente le nombre des attributs dans la classe
+-- La hauter représente le nombre des méthodes dans la classe
 ```
 
 **Figure 2: Navigation détaillée - Classe NotesManager**
-
-```
-[CAPTURE D'ÉCRAN À AJOUTER: Vue rapprochée de NotesManager]
-
-Description:
-- Affiche toutes les méthodes de NotesManager
-- Montre les dépendances vers Note et Person
-- Détail des signatures de méthodes
-- Nombre de lignes de code
-- Complexité cyclomatique
-```
+![Visualisation avec Roassal de la classe NotesManager](/images/visualisationRoassal_NotesManager.png)
 
 **Figure 3: Navigation détaillée - Classe Note**
-
-```
-[CAPTURE D'ÉCRAN À AJOUTER: Vue rapprochée de Note]
-
-Description:
-- Attributs et propriétés de la classe Note
-- Méthodes getters et setters
-- Structure interne de l'entité
-- Types des propriétés
-```
+![Visualisation avec Roassal de la classe Note](/images/visualisationRoassal_Note.png)
 
 **Figure 4: Navigation détaillée - Classe Person**
-
+![Visualisation avec Roassal de la classe Note](/images/visualisationRoassal_Person.png)
 ```
-[CAPTURE D'ÉCRAN À AJOUTER: Vue rapprochée de Person]
 
-Description:
-- Attributs de la classe Person
-- Méthodes disponibles
-- Relation avec le système de notes
-- Interface publique
+La visualisation détaillée inclut :
+- Une liste de toutes les méthodes de la classe choisie
+- Des signatures de méthodes
+- Une liste de toutes les attributs de la classe choisie
 ```
 
 ### Questions - Visualisation du projet TypeScript
 
 #### Q1: Quelles sont les classes remarquables dans le projet ? Comment le voyez-vous dans la visualisation ?
+
+La classes centrale 
 
 **Classes remarquables identifiées:**
 
